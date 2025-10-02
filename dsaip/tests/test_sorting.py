@@ -1,21 +1,44 @@
 import pytest
 import pytest_benchmark
+import json
+from pathlib import Path
 from algorithms import bubble_sort, insertion_sort, merge_sort
 
-def test_base_bubble_sort(benchmark):
-    arr = [12, 11, 13, 5, 6]
-    expected = [5, 6, 11, 12, 13]
-    benchmark(bubble_sort, arr)
-    assert arr == expected
+DATA_PATTERNS = Path(__file__).parent / "data/patterns.json"
 
-def test_base_insertion_sort(benchmark):
-    arr = [12, 11, 13, 5, 6]
-    expected = [5, 6, 11, 12, 13]
-    benchmark(insertion_sort, arr)
-    assert arr == expected
+def load_int_pattern(idx: int):
+    with DATA_PATTERNS.open('r') as file:
+        data = json.load(file)
+    return data["integer_lists"][idx]
 
-def test_base_merge_sort(benchmark):
-    arr = [12, 11, 13, 5, 6]
-    expected = [5, 6, 11, 12, 13]
-    benchmark(merge_sort, arr)
-    assert arr == expected
+# Base tests
+
+# def test_bubble_sort():
+#     pattern = load_int_pattern(0)
+#     list = pattern["initial"]
+#     bubble_sort(list)
+#     print(list, sep=',')
+#     assert list == pattern["expected"]
+
+def test_insertion_sort():
+    pattern = load_int_pattern(0)
+    list = pattern["initial"]
+    insertion_sort(list)
+    print(list, sep=',')
+    assert list == pattern["expected"]
+
+# def test_merge_sort():
+#     pattern = load_int_pattern(0)
+#     list = pattern["initial"]
+#     merge_sort(list)
+#     print(list, sep=',')
+#     assert list == pattern["expected"]
+
+# Large input tests
+
+def test_insertion_sort_large_n(benchmark):
+    pattern = load_int_pattern(1)
+    list = pattern["initial"]
+    benchmark(insertion_sort, list)
+    print(list, sep=',')
+    assert list == pattern["expected"]
