@@ -5,7 +5,9 @@ from random import sample
 from pathlib import Path
 from algorithms import bubble_sort, insertion_sort, merge_sort
 
+# File path for data patterns
 DATA_PATTERNS = Path(__file__).parent / "data/patterns.json"
+
 # Helper function which loads integer list patterns for edge cases
 def load_int_pattern(idx: int) -> dict:
     with DATA_PATTERNS.open('r') as file:
