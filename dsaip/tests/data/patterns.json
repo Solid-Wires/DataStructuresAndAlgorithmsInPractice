@@ -14,6 +14,21 @@
             "initial": [38, 27, 43, 10],
             "expected": [10, 27, 38, 43],
             "summary": "Int sequence used from merge sort on Geeks4Geeks"
+        },
+        {
+            "initial": [99, 44, 67, 27, -60, -48, -35, -87],
+            "expected": [-87, -60, -48, -35, 27, 44, 67, 99],
+            "summary": "Contains negatives"
+        },
+        {
+            "initial": [-13, 76, -41, 18, 67, 13, 0, 50, -42],
+            "expected": [-42, -41, -13, 0, 13, 18, 50, 67, 76],
+            "summary": "Contains zero"
+        },
+        {
+            "initial": [7, 8, 7, 7, 7, 7, 5, 7],
+            "expected": [5, 7, 7, 7, 7, 7, 7, 8],
+            "summary": "Duplicate values"
         }
     ]
 }
