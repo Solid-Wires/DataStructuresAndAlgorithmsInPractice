@@ -13,12 +13,12 @@ def load_int_pattern(idx: int):
 
 # Base tests
 
-# def test_bubble_sort():
-#     pattern = load_int_pattern(0)
-#     list = pattern["initial"]
-#     bubble_sort(list)
-#     print(list, sep=',')
-#     assert list == pattern["expected"]
+def test_bubble_sort():
+    pattern = load_int_pattern(1)
+    list = pattern["initial"]
+    bubble_sort(list)
+    print(list, sep=',')
+    assert list == pattern["expected"]
 
 def test_insertion_sort():
     pattern = load_int_pattern(0)
@@ -36,8 +36,15 @@ def test_insertion_sort():
 
 # Large input tests
 
+def test_bubble_sort_large_n(benchmark):
+    pattern = load_int_pattern(2)
+    list = pattern["initial"]
+    benchmark(bubble_sort, list)
+    print(list, sep=',')
+    assert list == pattern["expected"]
+
 def test_insertion_sort_large_n(benchmark):
-    pattern = load_int_pattern(1)
+    pattern = load_int_pattern(2)
     list = pattern["initial"]
     benchmark(insertion_sort, list)
     print(list, sep=',')
