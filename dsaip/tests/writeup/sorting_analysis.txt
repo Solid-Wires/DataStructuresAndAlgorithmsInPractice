@@ -1,0 +1,9 @@
+Name (time in us)                        Min                     Max                    Mean                 StdDev                  Median                    IQR            Outliers         OPS            Rounds  Iterations
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+test_insertion_sort_large_n         174.1331 (1.0)          242.1681 (1.0)          181.5423 (1.0)          20.2247 (1.0)          174.9750 (1.0)           1.3407 (1.0)           1;2  5,508.3579 (1.0)          11           1
+test_merge_sort_large_n           3,920.1151 (22.51)     15,860.7978 (65.49)      6,202.5577 (34.17)     3,193.8989 (157.92)     4,881.0062 (27.90)       615.2781 (458.92)      23;31    161.2238 (0.03)        159           1
+test_bubble_sort_large_n        124,916.3321 (717.36)   175,579.9251 (725.03)   153,369.8883 (844.82)   19,946.7754 (986.26)   149,121.6740 (852.25)   28,236.9978 (>1000.0)       2;0      6.5202 (0.00)          5           1
+
+Unsurprisingly, without the optimization, bubble sort is terrible. But merge sort for a large n size isn't
+any better than good ol' insertion sort though. This is because it's O(nlogn) complexity, while insertion
+sort is O(n) complexity - there is a larger complexity difference there.

@@ -1,2 +1,3 @@
 pytest-benchmark
+pytest-randomly
 tomli
