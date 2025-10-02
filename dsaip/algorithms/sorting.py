@@ -17,9 +17,12 @@ def bubble_sort(arr: list[int]):
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
                 swapped = True
-        # Get out of the loop if we didn't swap at all
-        if swapped == False:
-            break
+        # # Get out of the loop if we didn't swap at all
+        # # NOTE: This is GeeksForGeeks' optimization of bubble sort.
+        # # Commented out to display terrible performance complexity
+        # # But the algorithm shows significant improvement with this condition
+        # if swapped == False:
+        #     break
 
 # Sort an array using insertion sort
 # O(n) complexity
@@ -40,18 +43,57 @@ def insertion_sort(arr: list[int]):
             j -= 1
         arr[j + 1] = cur
 
+# Merge two lists (helper for merge sort)
+def merge(arr: list[int], left: int, mid: int, right: int):
+    n0: int = mid - left + 1
+    n1: int = right - mid
+    
+    # Create temp arrays, initialized to 0
+    L: list[int] = [0] * n0
+    R: list[int] = [0] * n1
+    
+    # Copy data to temo arrays L[] and R[]
+    for i in range(n0):
+        L[i] = arr[left + i]
+    for j in range(n1):
+        R[j] = arr[mid + 1 + j]
+    
+    i: int = 0
+    j: int = 0
+    k: int = left
+    
+    # Merge the temp arrays back
+    # into arr[left..right]
+    while i < n0 and j < n1:
+        if L[i] <= R[j]:
+            arr[k] = L[i]
+            i += 1
+        else:
+            arr[k] = R[j]
+            j += 1
+        k += 1
+    
+    # Copy the remaining eleents of L[],
+    # if there are any
+    while i < n0:
+        arr[k] = L[i]
+        i += 1
+        k += 1
+    # Copy the remaining eleents of R[],
+    # if there are any
+    while j < n1:
+        arr[k] = R[j]
+        j += 1
+        k += 1
+
 # Sort an array using merge sort
 # O(nlog(n)) complexity
 # https://www.geeksforgeeks.org/dsa/merge-sort/
-# GeeksForGeeks' implementation is a little strange. This implementation is going to
-# be a lot more compact and gets straight to the point for the initial left and right values.
-def merge_sort(arr0: list[int]):
-    
-    # Merge two lists.
-    def merge(arr1: list[int], left: int, mid: int, right:int):
-        pass
-    
-    left: int = 0
-    right: int = len(arr0) - 1
-    
-    raise NotImplementedError
+def merge_sort(arr0: list[int], left: int = 0, right: int = -1):
+    if right < 0: right = len(arr0) - 1
+    if left < right:
+        mid = (left + right) // 2
+        
+        merge_sort(arr0, left, mid)
+        merge_sort(arr0, mid + 1, right)
+        merge(arr0, left, mid, right)
