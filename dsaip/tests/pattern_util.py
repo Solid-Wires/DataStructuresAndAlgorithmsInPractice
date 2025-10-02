@@ -2,6 +2,9 @@ from pathlib import Path
 from json import load as json_load
 from random import sample
 # Helper definitions for retrieval of input patterns for edge cases
+# A pattern is a dataset which explains an initial set of inputs and an expected
+# output when such inputs are processed through a function.
+# Or, to put it simply, edge case inputs.
 
 
 # File path for data patterns
