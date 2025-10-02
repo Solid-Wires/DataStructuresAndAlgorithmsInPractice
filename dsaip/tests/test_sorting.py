@@ -1,22 +1,20 @@
 import pytest
 import pytest_benchmark
-import json
-import random
+from json import load as json_load
+from random import sample
 from pathlib import Path
 from algorithms import bubble_sort, insertion_sort, merge_sort
 
 DATA_PATTERNS = Path(__file__).parent / "data/patterns.json"
-random.seed(42) # For reproducability
-
 # Helper function which loads integer list patterns for edge cases
 def load_int_pattern(idx: int) -> dict:
     with DATA_PATTERNS.open('r') as file:
-        data = json.load(file)
+        data = json_load(file)
     return data["integer_arrays"][idx]
 
 # Helper function which generates fixed input sizes of random numbers
 def generate_random_input_size_n(size: int) -> dict:
-    sample_arr = random.sample(range(20000), size)
+    sample_arr = sample(range(20000), size)
     sorted_arr = sorted(sample_arr) # Using built-in sort
     return {
         "initial": sample_arr,
