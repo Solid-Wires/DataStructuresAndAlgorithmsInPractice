@@ -13,7 +13,7 @@ def load_int_arr_sorting_pattern(idx: int) -> dict:
         data = json_load(file)
     return data["integer_arrays_sorting"][idx]
 
-# Generates fixed input sizes of random number patterns
+# Generates input size n of random integer patterns for sorting algorithms
 def generate_random_int_arr_sorting_input_size(n: int) -> dict:
     sample_arr: list[int] = sample(range(20000), n)
     sorted_arr: list[int] = sorted(sample_arr) # Using built-in sort
