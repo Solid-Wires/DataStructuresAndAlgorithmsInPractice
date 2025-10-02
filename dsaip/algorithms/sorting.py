@@ -2,7 +2,7 @@
 # Sort an array using the infamous, naive bubble sort
 # O(n^2) complexity
 # https://www.geeksforgeeks.org/dsa/bubble-sort-algorithm/
-def bubble_sort(arr: list[int]):
+def bubble_sort(arr: list[int]) -> None:
     n: int = len(arr)
     
     # Start from index 0 to size of list exclusive (n - 1)
@@ -28,7 +28,7 @@ def bubble_sort(arr: list[int]):
 # Sort an array using insertion sort
 # O(n) complexity
 # https://www.geeksforgeeks.org/dsa/insertion-sort-algorithm/
-def insertion_sort(arr: list[int]):
+def insertion_sort(arr: list[int]) -> None:
     n: int = len(arr)
     
     # Start from index 1 to size of list exclusive (n - 1)
@@ -45,7 +45,7 @@ def insertion_sort(arr: list[int]):
         arr[j + 1] = cur
 
 # Merge two lists (helper for merge sort)
-def merge(arr: list[int], left: int, mid: int, right: int):
+def merge(arr: list[int], left: int, mid: int, right: int) -> None:
     n0: int = mid - left + 1
     n1: int = right - mid
     
@@ -90,7 +90,7 @@ def merge(arr: list[int], left: int, mid: int, right: int):
 # Sort an array using merge sort
 # O(nlog(n)) complexity
 # https://www.geeksforgeeks.org/dsa/merge-sort/
-def merge_sort(arr0: list[int], left: int = 0, right: int = -1):
+def merge_sort(arr0: list[int], left: int = 0, right: int = -1) -> None:
     if right < 0: right = len(arr0) - 1
     if left < right:
         mid = (left + right) // 2
