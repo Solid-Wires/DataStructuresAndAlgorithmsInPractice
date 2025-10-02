@@ -2,6 +2,7 @@
 __pycache__/
 .pytest_cache/
 .python-version/
+.benchmarks/
 
 # Ignore virtual environments
 .venv/

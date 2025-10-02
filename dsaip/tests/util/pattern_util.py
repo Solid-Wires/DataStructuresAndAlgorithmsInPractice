@@ -8,7 +8,7 @@ from random import sample
 
 
 # File path for data patterns
-DATA_PATTERNS: Path = Path(__file__).parent / "data/patterns.json"
+DATA_PATTERNS: Path = Path(__file__).parent.parent / "data/patterns.json"
 
 # Loads integer list patterns for edge cases
 def load_int_arr_sorting_pattern(idx: int) -> dict:

@@ -1,8 +1,8 @@
 import pytest
 from algorithms import insertion_sort
-from .benchmark_util import benchmark_run_sort_fn as run_sort_fn
-from .pattern_util import generate_random_int_arr_sorting_input_size as generate_random_input_size
-from .pattern_util import load_int_arr_sorting_pattern as load_pattern
+from tests.util import benchmark_run_sort_fn as run_sort_fn
+from tests.util import generate_random_int_arr_sorting_input_size as generate_random_input_size
+from tests.util import load_int_arr_sorting_pattern as load_pattern
 
 # Scaling + Functionality
 
