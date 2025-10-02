@@ -12,7 +12,7 @@ DATA_PATTERNS: Path = Path(__file__).parent / "data/patterns.json"
 def load_int_pattern(idx: int) -> dict:
     with DATA_PATTERNS.open('r') as file:
         data = json_load(file)
-    return data["integer_arrays"][idx]
+    return data["integer_arrays_sorting"][idx]
 
 # Helper function which generates fixed input sizes of random numbers
 def generate_random_input_size_n(size: int) -> dict:
