@@ -20,7 +20,8 @@ def bubble_sort(arr: list[int]):
         # # Get out of the loop if we didn't swap at all
         # # NOTE: This is GeeksForGeeks' optimization of bubble sort.
         # # Commented out to display terrible performance complexity
-        # # But the algorithm shows significant improvement with this condition
+        # # But the algorithm shows significant improvement with this condition,
+        # # almost equivalent to linear sort because it reduces its complexity to about O(n)
         # if swapped == False:
         #     break
 
