@@ -1,2 +1,6 @@
 # Exposed public functions
-from .sorting import bubble_sort, insertion_sort, merge_sort
+from .sorting import (
+    bubble_sort,
+    insertion_sort,
+    merge_sort
+)
